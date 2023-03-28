@@ -30,12 +30,14 @@ function Create() {
                     })
                 }}/>
                 <button className="cross-button"><img src="/cross.png" alt="X" onClick={()=>{
-                    if(i!==0){
-                        setOptions(opts=>{
-                            return opts.slice(0,-1)
-                        })
-                        
-                    }
+                    setOptions(opts=>{
+                        if(opts.length>2){
+                            var arr = [...opts]
+                            arr.splice(i,1)
+                            return arr
+                        }
+                        return opts
+                    })
                 }}/></button>
                 </div>)}
                 <button onClick={(e)=>{
