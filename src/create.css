@@ -1,0 +1,35 @@
+.add-opt-btn{
+    border:none;
+    background-color:transparent;
+    padding:10px;
+    cursor:pointer;
+    border-radius:10px;
+    margin:10px; 
+}
+.add-opt-btn:hover{
+    background-color:rgb(226, 226, 226)
+    
+}
+.option-input{
+    display:flex;
+    align-items:center;
+    width:100%;
+    margin:10px 0;
+    justify-content:space-between
+
+    
+}
+.cross-button{
+    width:30px;
+    margin:0;
+    left-margin:10px;
+    background-color:transparent;
+    border:none;
+    cursor:pointer;
+}
+.cross-button>img{
+    width:100%
+}
+.btn{
+    width:100%
+}

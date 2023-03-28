@@ -2,12 +2,37 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import Login from './Login';
+import Register from './Register'
+import Create from './Create';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const router = createBrowserRouter([
+  {
+    path:'/',
+    element: <App/>
+  },
+  {
+    path:'/login',
+    element:<Login/>
+  },
+  {
+    path:'/register',
+    element:<Register/>
+  },
+  {
+    path:'/poll/create',
+    element:<Create/>
+  }
+])
+
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 
