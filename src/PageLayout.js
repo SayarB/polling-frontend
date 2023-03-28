@@ -16,8 +16,6 @@ function PageLayout({children}) {
     })
     return res
   }
- 
-console.log(username)
 
 
   useEffect(()=>{

@@ -38,7 +38,7 @@ function App() {
           {
             polls.map((poll,i)=>{
               return (
-              <Link key={"poll-"+poll.id} className='poll-link' to={'/poll/'+poll.id}>
+              <Link key={"poll-"+poll.id} className='poll-link' to={'/poll/respond/'+poll.id}>
                 <div className="poll-item">
                     <p>{poll.question}</p>
                 </div>

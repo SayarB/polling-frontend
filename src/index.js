@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Login from './Login';
 import Register from './Register'
 import Create from './Create';
+import Poll from './Poll';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path:'/poll/create',
     element:<Create/>
+  },
+  {
+    path:'/poll/respond/:id',
+    element:<Poll/>
   }
 ])
 

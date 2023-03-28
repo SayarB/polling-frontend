@@ -69,6 +69,8 @@ export const getPolls = ()=>{
 }
 export const getPollById = (id)=>{
     return new Promise((resolve,_)=>{
-        setTimeout(()=>{resolve(data.polls.filter(poll=>poll.id===id)[0])},1000)
+        setTimeout(()=>{
+            resolve(data.polls.filter(poll=>poll.id==id))
+        },1000)
     })
 }
