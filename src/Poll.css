@@ -11,14 +11,14 @@
     margin:10px 0;
     border:2px solid black;
     background-color: transparent;
+    cursor:pointer;
     border-radius:10px;
     text-align:left;
     display:flex;
     justify-content:space-between;
 }
-.option:hover{
+.option-btn:hover{
     background-color:rgb(212, 212, 212);
-    cursor:pointer;
 }
 .options-div{
     display:flex;

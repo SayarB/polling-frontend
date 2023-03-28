@@ -24,7 +24,8 @@ function Poll() {
   return (
     <PageLayout>
       <div className='card'>
-          <h2>{poll.question}</h2>
+          {poll?
+          <><h2>{poll.question}</h2>
           <div className='options-div'>
             {poll.options?.map((opt,i)=>
               <button onClick={()=>{handleResponse(i)}} key={'opt-'+i} className={'option-btn '+(response===i?"response":"") }>
@@ -32,7 +33,7 @@ function Poll() {
                 <p className={response===-1?"hidden":""}>{opt.numOfResponses*100/poll.totalResponses}%</p>
               </button>
             )}
-          </div>
+          </div></>:<h2>Can not find this Poll</h2>}
       </div>
     </PageLayout>
   )

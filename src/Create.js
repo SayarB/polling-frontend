@@ -8,7 +8,7 @@ function Create() {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log({question, options})
+        console.log('submit',{question, options})
     }
 
 
@@ -21,7 +21,7 @@ function Create() {
                 }}/></div>
                 <h2>Options :</h2>
                 {options.map((opt,i)=>
-                <div className={"option-input"}>
+                <div className={"option-input"} key={"option-input-"+i}>
                     <input className='input-field' type='text' value={opt} onChange={(e)=>{
                     setOptions(opts=>{
                         var arr = [...opts]
@@ -29,7 +29,7 @@ function Create() {
                         return arr
                     })
                 }}/>
-                <button className="cross-button"><img src="/cross.png" alt="X" onClick={()=>{
+                <button type="button" className="cross-button"><img src="/cross.png" alt="X" onClick={()=>{
                     setOptions(opts=>{
                         if(opts.length>2){
                             var arr = [...opts]
@@ -40,7 +40,7 @@ function Create() {
                     })
                 }}/></button>
                 </div>)}
-                <button onClick={(e)=>{
+                <button type='button' onClick={(e)=>{
                     setOptions(opts=>[...opts,""])
                 }} className='add-opt-btn'>Add +</button>
                 <button className='btn' type="submit">Submit</button>

@@ -31,5 +31,9 @@
     width:100%
 }
 .btn{
-    width:100%
+    width:100%;
+    background-color:hsl(120, 84%, 70%);
+}
+.btn:hover{
+    background-color:hsl(120, 84%, 60%)
 }

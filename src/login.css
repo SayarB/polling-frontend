@@ -28,7 +28,10 @@
     padding: 10px 35px;
     font-size:20px;
     border:none;
-    background-color:rgb(96, 231, 96);
+    background-color:hsl(120, 84%, 70%);
     border-radius:5px;
     cursor: pointer;
+}
+.btn:hover{
+    background-color:hsl(120, 84%, 60%)
 }

@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react"
-import { Navigate,Link } from "react-router-dom"
+import { Navigate,Link , useNavigate} from "react-router-dom"
 import Loading from "./Loading"
 import { getPolls } from "./mock/getPolls"
 
@@ -8,6 +8,7 @@ import PageLayout from "./PageLayout"
 function App() {
   const [polls, setPolls] = useState([])
   const [pollID, setPollID] = useState("")
+  const navigate = useNavigate()
   useEffect(()=>{
     (async ()=>{
       getPolls().then((res)=>{
@@ -18,7 +19,7 @@ function App() {
 
   const handleAnswerButtonClick = ()=>{
     if(pollID.length>0){
-      console.log("Answer: ", pollID)
+      navigate('/poll/respond/'+pollID)
     }else{
       alert("Enter Poll ID")
     }
