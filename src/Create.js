@@ -1,14 +1,29 @@
 import React,{useState} from 'react'
 import PageLayout from './PageLayout'
 import './create.css'
+import { useNavigate } from 'react-router-dom';
 function Create() {
 
     const [question, setQuestion] = useState("");
     const [options, setOptions] = useState(["",""])
-
+    const navigate = useNavigate()
+    const api_url = process.env.REACT_APP_APIURL
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log('submit',{question, options})
+        console.log('submit',{title:question, options})
+        const body = {title:question, options}
+
+        const xhr = new XMLHttpRequest()
+
+        xhr.onreadystatechange = ()=>{
+            if(xhr.readyState===4){
+                if(xhr.status===200) navigate('/poll/respond/'+JSON.parse(xhr.responseText)._id)
+            }
+        }
+        xhr.open('POST', `${api_url}/polls`,true)
+        xhr.withCredentials=true
+        xhr.setRequestHeader('Content-type','application/json')
+        xhr.send(JSON.stringify(body))
     }
 
 
@@ -29,16 +44,7 @@ function Create() {
                         return arr
                     })
                 }}/>
-                <button type="button" className="cross-button"><img src="/cross.png" alt="X" onClick={()=>{
-                    setOptions(opts=>{
-                        if(opts.length>2){
-                            var arr = [...opts]
-                            arr.splice(i,1)
-                            return arr
-                        }
-                        return opts
-                    })
-                }}/></button>
+                
                 </div>)}
                 <button type='button' onClick={(e)=>{
                     setOptions(opts=>[...opts,""])

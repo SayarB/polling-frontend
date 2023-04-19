@@ -3,7 +3,7 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    width:clamp(300px,50vw, 500px);
+    width:clamp(400px,50vw, 700px);
 }
 
 .create-btn{
@@ -51,4 +51,38 @@
     border-radius:10px
     
 
+}
+.default-btn{
+    
+    background-color:transparent;
+    border:none;
+}
+
+.nav{
+    display: flex;
+    justify-content:center;
+    margin-bottom:50px;
+}
+.nav>button{
+    flex:1;
+    margin:20px;
+    border-bottom:3px solid transparent
+}
+
+.nav>button.active{
+    border-bottom:3px solid black
+}
+
+.navbar{
+    position:absolute;
+    right:20px;
+    top:20px;
+}
+.navbar>*{
+    margin:20px;
+}
+.account-container{
+    max-height:80vh;
+    overflow:scroll;
+    padding:20px;
 }

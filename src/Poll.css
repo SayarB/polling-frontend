@@ -34,3 +34,14 @@
 .hidden{
     visibility: hidden;
 }
+.copy-btn{
+    align-self:flex-end;
+    background-color:transparent;
+    border:none;
+    cursor:pointer;
+}
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between
+}

@@ -1,21 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './login.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 const defaultValue = {
-  username:"",
+  email:"",
   password:""
 }
 function Login() {
   const [formState, setFormState ] = useState(defaultValue)
-
+  const navigate = useNavigate()
+  const location = useLocation()
+  const api_url = process.env.REACT_APP_APIURL
   const handleSubmit = (e)=>{
     e.preventDefault();
-    if(formState.username==="" || formState.password==="")
-    {
-      alert("Fill the required Fields")
-      return
+    const xhr = new XMLHttpRequest()
+
+    xhr.onreadystatechange = ()=>{
+      if(xhr.readyState===xhr.OPENED){
+        xhr.setRequestHeader('Content-type', 'application/json')
+      }
+      if(xhr.readyState===4){
+        if(xhr.status===200) navigate(location.state?.last|| "/")
+        else if(xhr.status===400){
+          alert(JSON.parse(xhr.response).error)
+        }
+      }
     }
-    console.log(formState)
+    xhr.open('POST', `${api_url}/users/login`)
+    xhr.withCredentials =true
+    xhr.send(JSON.stringify(formState))
   }
 
 
@@ -23,8 +35,8 @@ function Login() {
     <div className='form-container'>
         <form className='form' onSubmit={handleSubmit}>
             <h1 className="">Login</h1>
-            <input required className='input-field' type="text" placeholder='Username' value={formState.username} onChange={(e)=>{
-              setFormState(fs=>({...fs,username:e.target.value}))
+            <input required className='input-field' type="text" placeholder='Email' value={formState.email} onChange={(e)=>{
+              setFormState(fs=>({...fs,email:e.target.value}))
             }} />
             <input required type="password" className="input-field" placeholder='Password' value={formState.password} onChange={(e)=>{
               setFormState(fs=>({...fs,password:e.target.value}))

@@ -8,6 +8,10 @@ import Login from './Login';
 import Register from './Register'
 import Create from './Create';
 import Poll from './Poll';
+import CreateExam from './CreateExam';
+import Exam from './Exam';
+import UserAccount from './UserAccount';
+import ExamResponses from './ExamResponses';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -31,6 +35,22 @@ const router = createBrowserRouter([
   {
     path:'/poll/respond/:id',
     element:<Poll/>
+  },
+  {
+    path:'/exam/create',
+    element:<CreateExam/>
+  },
+  {
+    path:'/exam/respond/:id',
+    element:<Exam/>
+  },
+  {
+    path:'/exam/responses/:id',
+    element:<ExamResponses/>
+  },
+  {
+    path:'/account',
+    element:<UserAccount/>
   }
 ])
 
