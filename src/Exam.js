@@ -43,7 +43,10 @@ function Exam() {
           if(xhr.readyState===4 && xhr.status===200){
             const examObj = JSON.parse(xhr.response)
             setExam(examObj)
-            if(examObj.responded) setSubmitted(true)
+            if(examObj.responded) {
+              setSubmitted(true)
+              setMarksObtained(examObj.marksObtained)
+            }
           }
         }
         xhr.open('GET',`${api_url}/exams/${id}`,true)
