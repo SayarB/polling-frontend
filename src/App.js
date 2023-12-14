@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react"
 import { Link , useNavigate} from "react-router-dom"
-import './app.css'
+import './App.css'
 import PageLayout from "./PageLayout"
 function App() {
   const [polls, setPolls] = useState([])

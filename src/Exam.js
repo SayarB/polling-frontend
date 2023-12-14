@@ -77,6 +77,7 @@ function Exam() {
          
         {exam.questions.map((ques, ques_no)=>
         <div>
+          <p>Marks : {exam.marksTotal}</p>
             <h2>{ques.text}</h2>
             <div className='options-div'>
             {ques.options?.map((opt,i)=>
