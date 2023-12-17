@@ -106,6 +106,7 @@ function CreateExam() {
         <form className='exam-form' onSubmit={onSubmit}>
 
             <input type="text" className='input-field' placeholder='Title of Quiz' value={nameOfQuiz} onChange={(e)=>{setNameOfQuiz(e.target.value)}}/>
+            <p>Total Marks</p>
             <input type="number" className='input-field' placeholder='Total Marks' value={marksTotal} onChange={(e)=>{
                 if(e.target.value<=0) return alert("Total Marks should be positive")
                 setMarksTotal(e.target.value)}}/>
